@@ -15,6 +15,7 @@ app.get('/person', getUser, (req, res) => {
   res.send(req.user);
 });
 
+
 app.use('*', error404);
 app.use(error500);
 

@@ -1,10 +1,10 @@
 'use strict';
+const error500 = require('../error-handlers/500.js');
 
 module.exports = (req, res, next) => {
-  if (!req.query) {
-    // res.status(403).send({'Error': 'No auth provided'});
-    next({'Error': 'no name provided'}); // this will trigger our error handler
+  if (!req.query.name) {
+    next(error500); // this will trigger our error handler
   } else{
-    next(); // passing anything into the next function its considered an error.
+    next(); 
   }
 }
